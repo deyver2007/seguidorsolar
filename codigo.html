@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código Seguidor Solar</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .code-container {
+            background-color: #2d2d2d;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .keyword {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .type {
+            color: #3498db;
+        }
+
+        .comment {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        .number {
+            color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="code-container">
+        <h1>Seguidor Solar - Código</h1>
+        <pre>
+#include <span class="keyword">Wire</span>.h>
+#include <span class="keyword">RTClib</span>.h>        <span class="comment">// Biblioteca compatible con ESP32 para RTC</span>
+#include <span class="keyword">ESP32Servo</span>.h>     <span class="comment">// Biblioteca de Servo específica para ESP32</span>
+
+<span class="keyword">#define</span> LDR <span class="number">4</span>               <span class="comment">// Definir el pin del LDR como constante</span>
+
+Servo panel;                <span class="comment">// Crear una instancia del servo</span>
+RTC_DS3231 rtc;             <span class="comment">// Crear una instancia del RTC</span>
+
+unsigned long servoMoveTime;  <span class="comment">// Variable para controlar el tiempo de movimiento del servo</span>
+float tiempo = <span class="number">1000</span>;          <span class="comment">// 5.5 segundos para cada movimiento de grado</span>
+unsigned long t = <span class="number">0</span>;          <span class="comment">// Temporizador de referencia</span>
+
+int pos_default = <span class="number">35</span>;         <span class="comment">// Posición predeterminada del servo</span>
+int pos_default_add = <span class="number">35</span>;     <span class="comment">// Incremento de posición del servo</span>
+boolean act_1 = <span class="keyword">false</span>;        <span class="comment">// Estado de activación del movimiento</span>
+char DiaSemana[][<span class="number">4</span>] = {<span class="comment">"Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"</span>};  <span class="comment">// Días de la semana</span>
+
+<span class="keyword">void</span> setup() {
+    Serial.<span class="keyword">begin</span>(<span class="number">9600</span>);
+    delay(<span class="number">1000</span>);
+
+    Wire.<span class="keyword">begin</span>(<span class="number">22</span>, <span class="number">21</span>);
+    rtc.<span class="keyword">begin</span>();
+
+    rtc.<span class="keyword">adjust</span>(DateTime(<span class="number">2024</span>, <span class="number">10</span>, <span class="number">11</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">0</span>)); 
+
+    panel.<span class="keyword">attach</span>(<span class="number">23</span>);
+    panel.<span class="keyword">write</span>(pos_default);
+}
+
+<span class="keyword">void</span> loop() {
+    int LDR_val = analogRead(LDR);
+
+    Serial.print(<span class="comment">"SENSOR_LDR: "</span>);
+    Serial.println(LDR_val);
+
+    DateTime now = rtc.now();
+    mostrarFechaHora(now);
+
+    delay(<span class="number">1000</span>);
+
+    <span class="keyword">if</span> (LDR_val >= <span class="number">4095</span>) {
+        panel.<span class="keyword">write</span>(pos_default);
+    }
+
+    <span class="keyword">if</span> (now.minute() >= <span class="number">9</span> && now.minute() < <span class="number">19</span>) {
+        act_1 = <span class="keyword">true</span>;
+    }
+
+    <span class="keyword">if</span> (act_1) {
+        servoMoveTime = millis();
+        <span class="keyword">if</span> (servoMoveTime - t > tiempo) {
+            t = servoMoveTime;
+            pos_default_add++;
+        }
+        <span class="keyword">if</span> (LDR_val <= <span class="number">4080</span>) {
+            panel.<span class="keyword">write</span>(pos_default_add);
+            Serial.print(<span class="comment">"GRADOS SERVO: "</span>);
+            Serial.println(pos_default_add);
+        }
+    }
+
+    <span class="keyword">if</span> (pos_default_add >= <span class="number">150</span>) {
+        act_1 = <span class="keyword">false</span>;
+        panel.<span class="keyword">write</span>(pos_default);
+        pos_default_add = pos_default;
+    }
+}
+
+<span class="keyword">void</span> mostrarFechaHora(DateTime now) {
+    Serial.print(now.year(), DEC);
+    Serial.print(<span class="comment">'/'</span>);
+    Serial.print(now.month(), DEC);
+    Serial.print(<span class="comment">'/'</span>);
+    Serial.print(now.day(), DEC);
+    Serial.print(<span class="comment">' '</span>);
+    Serial.print(now.hour(), DEC);
+    Serial.print(<span class="comment">':'</span>);
+    Serial.print(now.minute(), DEC);
+    Serial.print(<span class="comment">':'</span>);
+    Serial.print(now.second(), DEC);
+    Serial.print(<span class="comment">" "</span>);
+    Serial.println(DiaSemana[now.dayOfTheWeek()]);
+}
+        </pre>
+    </div>
+
+</body>
+</html>

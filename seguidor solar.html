@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguidor Solar</title>
+    <style>
+        /* Estilo base */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f0f2;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0 0 20px;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        p, li {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li::before {
+            content: "✔️";
+            margin-right: 10px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .header-container img {
+            max-width: 20%;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .access-link a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.8rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .access-link a:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p, li {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <img src="logo del colegio.webp" alt="Imagen izquierda del título">
+        <h1>Seguidor Solar</h1>
+        <img src="logo.jpeg" alt="Imagen derecha del título">
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="seguidor solar.jpg" alt="img 2">
+        </div>
+        <div class="content">
+            <h2>¿Qué es?</h2>
+            <p>Este seguidor solar es un panel solar que, por medio de un circuito, funciona principalmente gracias al módulo de tiempo y un fotorresistor. El módulo de tiempo da la hora en la que se debe mover el motor, mientras que el fotorresistor ayuda a evitar el consumo innecesario de energía durante la rotación del panel solar.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2>Objetivo</h2>
+            <p>Este panel está diseñado para maximizar la recolección de energía, permitiendo acumular energía en una batería para su uso como energía de emergencia o como fuente alternativa, conectando la energía directamente a la casa para ahorrar en costos energéticos.</p>
+        </div>
+        <div class="image-container">
+            <img src="bateria.png" alt="Descripción de la imagen 3">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="panel solar.jpg" alt="Descripción de la imagen 4">
+        </div>
+        <div class="content">
+            <h2>¿Para qué se necesitaría?</h2>
+            <p>Este proyecto está centrado en ser una fuente de energía de emergencia o alternativa, ideal para ahorrar en costos de energía y tener una fuente barata y confiable.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Materiales y cómo sirven</h2>
+        <ul>
+            <li><strong>ESP32:</strong> Microcontrolador con conectividad a internet.</li>
+            <li><strong>DS3231:</strong> Módulo de tiempo para identificar la hora del día.</li>
+            <li><strong>Cables:</strong> Elementos fundamentales para conectar el circuito.</li>
+            <li><strong>Servomotor SG5010:</strong> Permite el movimiento del panel solar.</li>
+            <li><strong>Una tabla:</strong> Estructura base del seguidor solar.</li>
+            <li><strong>Fotorresistor:</strong> Detecta el nivel de luz y asiste en el control energético.</li>
+            <li><strong>Resistencia:</strong> Protege al fotorresistor de sobrecargas.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Planos y circuito</h2>
+        <div class="image-container">
+            <img src="conexiones.jpeg" alt="Descripción de la imagen 5">
+            <img src="planos.jpg" alt="Descripción de la imagen 6" style="margin-left: 10px;">
+        </div>
+    </div>
+
+    <div class="access-link">
+        <a href="codigo.html">muestra del codigo</a>
+    </div>
+
+    <div class="section">
+        <h2>Contactos</h2>
+        <p><strong>Correos:</strong></p>
+        <p>demartinezp@cnb.edu.co</p>
+        <p>jhmartinezp@cnb.edu.co</p>
+        <p><strong>Nombres:</strong></p>
+        <p>Deyver Alexander Martínez Peralta</p>
+        <p>Jhorman Estiven Martínez Peralta</p>
+    </div>
+
+</body>
+</html>
