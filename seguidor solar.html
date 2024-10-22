@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -106,6 +106,18 @@
             background-color: #2980b9;
         }
 
+        /* Ajustar el video para que esté debajo de los planos */
+        .video-container {
+            width: 80%;
+            margin: 40px 0; /* Añadir margen para espacio alrededor del video */
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 600px) {
             h1 {
                 font-size: 3rem;
@@ -180,6 +192,14 @@
         </div>
     </div>
 
+    <!-- Contenedor del video debajo de los planos -->
+    <div class="video-container">
+        <video controls>
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+
     <div class="access-link">
         <a href="codigo.html">muestra del codigo</a>
     </div>
@@ -193,6 +213,6 @@
         <p>Deyver Alexander Martínez Peralta</p>
         <p>Jhorman Estiven Martínez Peralta</p>
     </div>
-
+    
 </body>
 </html>
