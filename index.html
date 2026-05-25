@@ -1,1 +1,261 @@
+DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguidor Solar</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e8f0f2;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 0 0 20px;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        p, li {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+.small-images {
+    max-width: 45%; /* el tamaño que resulta conveniente quedara en 45% /*
+    height: auto;
+    margin-right: 10px;
+}
+
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li::before {
+            content: "✔️";
+            margin-right: 10px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+
+        .header-container img {
+            max-width: 20%;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .access-link a {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.8rem;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .access-link a:hover {
+            background-color: #2980b9;
+        }
+
+        .video-container {
+            width: 80%;
+            margin: 40px 0; 
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p, li {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <img src="logo del colegio.webp" alt="Imagen izquierda del título">
+        <h1>Seguidor Solar</h1>
+        <img src="logo.jpeg" alt="Imagen derecha del título">
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="seguidor solar.jpg" alt="img 2">
+            <h5>https://acortar.link/DvRCTk</h5>
+        </div>
+        <div class="content">
+            <h2>¿Qué es?</h2>
+            <p>Un seguidor solar es un dispositivo que orienta paneles solares hacia el sol a medida que este se mueve a lo largo del día. Su objetivo es maximizar la captación de luz solar, aumentando así la eficiencia de la generación de energía.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h2>Objetivo</h2>
+            <p>Este panel está diseñado para maximizar la recolección de energía, permitiendo acumular energía en una batería para su uso como energía de emergencia o como fuente alternativa, conectando el panel solar directamente a la casa para ahorrar en costos energéticos.</p>
+        </div>
+        <div class="image-container">
+            <img src="bateria.png" alt="Descripción de la imagen 3">
+        <h5> https://www.crushpixel.com/es/stock-vector/car-battery-icon-simple-style-3621681.html </h5>    
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="panel solar.jfif" alt="Descripción de la imagen 4">
+            <h5> https://deyver2007.github.io/seguidorsolar/panel%20solar.jpg </h5>
+        </div>
+        <div class="content">
+            <h2>¿Para qué se necesitaría?</h2>
+            <p>Este proyecto está centrado en ser una fuente de energía de emergencia o alternativa, ideal para ahorrar en costos de energía y a largo plazo poder ahorrar dinero en costos de energia electrica en caso de que se use como una fuente pricipal de energia</p>
+        </div>
+    </div>
+ <div class="container">
+        <div class="content">
+            <h2>Beneficios</h2>
+            <p><h5> Mayor eficiencia: Al seguir la trayectoria del sol, los seguidores solares pueden aumentar la captación de luz, lo que se traduce en una mayor producción de energía en comparación con paneles fijos.
+<p><h5>Optimización del espacio: Permiten aprovechar mejor el área disponible, ya que generan más energía en menos espacio.</p>
+<p><h5>Reducción de costos a largo plazo: Aunque la inversión inicial puede ser mayor, el aumento en la producción de energía puede compensar rápidamente los costos, reduciendo el costo por kilovatio-hora.</p>
+<p><h5>Flexibilidad en el diseño: Se pueden adaptar a diferentes tipos de instalaciones y terrenos, lo que facilita su integración en proyectos de energía solar.</p>
+<p><h5>Menor necesidad de mantenimiento: Muchos sistemas de seguimiento son automáticos y requieren poco mantenimiento una vez instalados.</p>
+<p><h5>Aprovechamiento de la energía en diversas condiciones: Pueden ajustarse para maximizar la captación de energía incluso en días nublados o en diferentes estaciones.</p>
+</p>
+        </div>
+        <div class="image-container">
+            <img src="beneficios.jfif" alt="Descripción de la imagen 3">
+        <h5> https://acortar.link/7HhDx1/ </h5>    
+        </div>
+    </div>
+    <div class="section">
+        <h2>Materiales y cómo sirven</h2>
+        <ul>
+        <li>
+            <img src="esp32.jfif" alt="ESP32" style="width: 50px; margin-right: 10px;">
+            <strong>ESP32:</strong> Es un módulo que tiene WIFI+BT+BLE para aplicaciones con sensores de baja potencia hasta tareas exigentes, como codificación de voz, transmisión de música y decodificación MP3. Contiene además una corriente de reposo 5uA, velocidad de hasta 150 Mbps y potencia de salida 20dBm.
+        </li>
+        <li>
+            <img src="modulo de tiempo.jfif" alt="DS3231" style="width: 50px; margin-right: 10px;">
+            <strong>DS3231:</strong> Proporciona un conjunto de cálculos para calcular tiempo transcurrido entre dos campos de tiempo mientras se excluyen del cálculo los períodos fuera de la ranura de tiempo.
+        </li>
+        <li>
+            <img src="cables.jfif" alt="Cables" style="width: 50px; margin-right: 10px;">
+            <strong>Cables:</strong> Elementos fundamentales que sirven a la hora de conectar el circuito.
+        </li>
+        <li>
+            <img src="servomotor.jfif" alt="Servomotor SG5010" style="width: 50px; margin-right: 10px;">
+            <strong>Servomotor SG5010:</strong> Un servomotor, también conocido como servo, es un dispositivo que permite controlar con máxima precisión la posición y movimientos de su eje. Esto significa que este se puede mover en un ángulo, posición y a una velocidad determinada en cada momento, algo que no puede hacer un motor eléctrico normal.
+        </li>
+        <li>
+            <img src="madera.jfif" alt="Tabla" style="width: 50px; margin-right: 10px;">
+            <strong>Una tabla:</strong> Estructura base que mantiene firme al seguidor solar.
+        </li>
+        <li>
+            <img src="fotoresistor.jfif" alt="Fotorresistor" style="width: 50px; margin-right: 10px;">
+            <strong>Fotorresistor:</strong> toman la luz solar para generar una corriente directa, la cual es transferida y aprovechada por la mayoría de los equipos eléctricos. La energía generada pasa a través de un medidor, que la cuantifica.
+        
+        </li>
+        <li>
+            <img src="resistencia.jfif" alt="Resistencia" style="width: 50px; margin-right: 10px;">
+            <strong>Resistencia:</strong> La resistencia a la electricidad, es decir, la resistencia eléctrica, es una fuerza que contrarresta el flujo de corriente. De esta forma, sirve como indicador de lo difícil que es que fluya la corriente. Los valores de resistencia se expresan en ohmios (Ω).
+        </li>
+             <li>
+            <img src="panel 5v.jpg" alt="panel solar" style="width: 50px; margin-right: 10px;">
+            <strong>panel solar pequeño:</strong> toman la luz solar para generar energia electrica.
+        </li>
+    </ul>
+    </div>
+
+   <div class="image-container">
+    <img src="conexiones.jpeg" alt="Descripción de la imagen 5" class="small-images">
+    <img src="planos.jpg" alt="Descripción de la imagen 6" class="small-images" style="margin-left: 10px;">
+</div>
+
+    <div class="video-container">
+        <video controls>
+            <source src="VID_20241023_214541-1 (1) (1).mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+        </video>
+    </div>
+
+    <div class="access-link">
+        <a href="codigo.html">muestra del codigo</a>
+    </div>
+
+    <div class="section">
+        <h2>Contactos</h2>
+        <p><strong>Correos:</strong></p>
+        <p>demartinezp@cnb.edu.co</p>
+        <p>jhmartinezp@cnb.edu.co</p>
+        <p><strong>Nombres:</strong></p>
+        <p>Deyver Alexander Martínez Peralta</p>
+        <p>Jhorman Estiven Martínez Peralta</p>
+</body>
+</html>
 
